@@ -537,17 +537,29 @@ module.exports={"$version":8,"$root":{"version":{"required":true,"type":"enum","
 const mapboxgl = __webpack_require__(0);
 const buildMarker = __webpack_require__(3);
 
-mapboxgl.accessToken = "YOUR API TOKEN HERE";
+mapboxgl.accessToken = 'YOUR API TOKEN HERE';
+
+const fullstackCoords = [-74.009, 40.705]; // NY
+// const fullstackCoords = [-87.6320523, 41.8881084] // CHI
 
 const map = new mapboxgl.Map({
-  container: "map",
-  center: [-74.009, 40.705], // FullStack coordinates
+  container: 'map',
+  center: fullstackCoords, // FullStack coordinates
   zoom: 12, // starting zoom
-  style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
+  style: 'mapbox://styles/mapbox/streets-v10', // mapbox has lots of different map styles available.
 });
 
-const marker = buildMarker("activities", [-74.009, 40.705]);
+const marker = buildMarker('activities', fullstackCoords);
 marker.addTo(map);
+
+// select from Hotel, activity, itinerary
+// Select between hotels, restaurants and activities (the application will fetch all these data using AJAX)
+// Select and set the hotel
+// Select and add a restaurant
+// Select and add an activity
+// Remove the hotel
+// Remove a restaurant
+// Remove an activity
 
 
 /***/ }),
